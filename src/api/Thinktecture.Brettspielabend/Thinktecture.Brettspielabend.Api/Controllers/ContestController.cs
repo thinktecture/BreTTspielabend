@@ -17,6 +17,7 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 			_distanceCalculator = distanceCalculator;
 		}
 
+		[HttpPut]
 		public IHttpActionResult Create(Contest contest)
 		{
 			contest.Id = Guid.NewGuid();
@@ -68,16 +69,16 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 			return Ok();
 		}
 
-		public IHttpActionResult FindNearby([FromBody] Coordinates origin, int radius)
+		[HttpGet]
+		public IHttpActionResult FindNearby([FromUri] Coordinates origin, int radius)
 		{
 			var contestsNearby = _store.Contests
 				.Select(c => new 
 				{
 					Contest = c.Value,
-					c.Value.Location.Coordinates
+					Distance = _distanceCalculator.CalculateDistance(origin, c.Value.Location.Coordinates)
 				})
-				.Where(c => _distanceCalculator.CalculateDistance(origin, c.Coordinates) < radius)
-				.Select(c => c.Contest);
+				.Where(c => c.Distance < radius);
 
 			return Ok(contestsNearby);
 		}
