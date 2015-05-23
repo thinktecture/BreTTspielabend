@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.Brettspielabend.Api", "Thinktecture.Brettspielabend.Api\Thinktecture.Brettspielabend.Api.csproj", "{7D97E6C2-87D9-439B-8A65-A1026D0874BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.Brettspielabend.SelfHost", "Thinktecture.Brettspielabend.SelfHost\Thinktecture.Brettspielabend.SelfHost.csproj", "{1CCC7F30-FC4C-469E-AE12-DF55B8C64766}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D97E6C2-87D9-439B-8A65-A1026D0874BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D97E6C2-87D9-439B-8A65-A1026D0874BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D97E6C2-87D9-439B-8A65-A1026D0874BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D97E6C2-87D9-439B-8A65-A1026D0874BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CCC7F30-FC4C-469E-AE12-DF55B8C64766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CCC7F30-FC4C-469E-AE12-DF55B8C64766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CCC7F30-FC4C-469E-AE12-DF55B8C64766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CCC7F30-FC4C-469E-AE12-DF55B8C64766}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
