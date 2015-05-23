@@ -80,8 +80,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\LobbyController.cs" />
+    <Compile Include="Controllers\ContestController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Data\Contest.cs" />
+    <Compile Include="Data\DataStore.cs" />
+    <Compile Include="Data\Game.cs" />
+    <Compile Include="Data\Location.cs" />
+    <Compile Include="Data\Coordinates.cs" />
+    <Compile Include="Data\User.cs" />
+    <Compile Include="Helpers\DistanceCalculator.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

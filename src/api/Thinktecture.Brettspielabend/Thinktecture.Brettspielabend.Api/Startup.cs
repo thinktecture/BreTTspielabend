@@ -2,6 +2,8 @@
 using Autofac;
 using Autofac.Integration.WebApi;
 using Owin;
+using Thinktecture.Brettspielabend.Api.Data;
+using Thinktecture.Brettspielabend.Api.Helpers;
 
 namespace Thinktecture.Brettspielabend.Api
 {
@@ -19,6 +21,9 @@ namespace Thinktecture.Brettspielabend.Api
 	    {
 			var containerBuilder = new ContainerBuilder();
 			containerBuilder.RegisterApiControllers(typeof(Startup).Assembly);
+
+		    containerBuilder.RegisterType<DataStore>().SingleInstance();
+		    containerBuilder.RegisterType<DistanceCalculator>().SingleInstance();
 
 		    return containerBuilder.Build();
 	    }
