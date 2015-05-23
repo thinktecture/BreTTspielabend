@@ -9,7 +9,7 @@ namespace Thinktecture.Brettspielabend.Api.Helpers
 		 * Adapted from http://www.geodatasource.com/developers/c-sharp
 		 **/
 
-		internal double CalculateDistance(Coordinates origin, Coordinates destination)
+		public double CalculateDistance(Coordinates origin, Coordinates destination)
 		{
 			var theta = origin.Longitude - destination.Longitude;
 			var distance = Math.Sin(Deg2Rad(origin.Latitude)) *
@@ -26,12 +26,12 @@ namespace Thinktecture.Brettspielabend.Api.Helpers
 			return distance * 1.609344;
 		}
 
-		private static double Deg2Rad(double deg)
+		internal static double Deg2Rad(double deg)
 		{
 			return (deg * Math.PI / 180.0);
 		}
 
-		private static double Rad2Deg(double rad)
+		internal static double Rad2Deg(double rad)
 		{
 			return (rad / Math.PI * 180.0);
 		}
