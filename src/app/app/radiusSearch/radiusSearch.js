@@ -21,7 +21,7 @@
         init();
 
         function init() {
-            geolocation.getCoordinatesAsync()
+            geolocation.getCoordinatesFromSensor()
                 .then(function (coordinates) {
                     $scope.coordinates = {
                         latitude: coordinates.latitude,

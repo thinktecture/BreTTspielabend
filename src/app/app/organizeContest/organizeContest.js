@@ -18,7 +18,11 @@
         $scope.contest = {
             hostId: undefined,
             gameId: undefined,
-            location: {}
+            location: {
+                streetAddress: '',
+                postCode: '',
+                city: ''
+            }
         };
 
         init();
@@ -35,10 +39,23 @@
         }
 
         $scope.submit = function () {
-            contestApi.create($scope.contest)
+            var address = $scope.contest.location.streetAddress + ', ' + $scope.contest.location.postCode + ' ' + $scope.contest.location.city;
+            geolocation.getCoordinatesFromAddress(address)
+                .then(function (location) {
+                    if (location) {
+                        $scope.contest.location.coordinates = {
+                            latitude: location.lat,
+                            longitude: location.lng
+                        };
+                    }
+
+                    return $scope.contest;
+                })
+                .then(contestApi.create)
                 .then(function () {
                     $state.go('main');
                 });
+            ;
         };
     }
 
