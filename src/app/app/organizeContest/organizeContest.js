@@ -6,14 +6,20 @@
      * @public
      *
      * @param $scope
+     * @param $state
      * @param {Geolocation} geolocation
      * @param {ContestApi} contestApi
      * @param {GameApi} gameApi
      * @param {UserApi} userApi
      */
-    function OrganizeContestController($scope, geolocation, contestApi, gameApi, userApi) {
+    function OrganizeContestController($scope, $state, geolocation, contestApi, gameApi, userApi) {
         $scope.games = undefined;
         $scope.users = undefined;
+        $scope.contest = {
+            hostId: undefined,
+            gameId: undefined,
+            location: {}
+        };
 
         init();
 
@@ -27,6 +33,13 @@
                     $scope.users = users;
                 });
         }
+
+        $scope.submit = function () {
+            contestApi.create($scope.contest)
+                .then(function () {
+                    $state.go('main');
+                });
+        };
     }
 
     app.module.controller('organizeContestController', OrganizeContestController);
