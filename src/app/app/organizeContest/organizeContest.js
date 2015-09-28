@@ -11,8 +11,9 @@
      * @param {ContestApi} contestApi
      * @param {GameApi} gameApi
      * @param {UserApi} userApi
+     * @param {SecurityService} securityService
      */
-    function OrganizeContestController($scope, $state, geolocation, contestApi, gameApi, userApi) {
+    function OrganizeContestController($scope, $state, geolocation, contestApi, gameApi, userApi, securityService) {
         $scope.games = undefined;
         $scope.users = undefined;
         $scope.contest = {
@@ -39,7 +40,9 @@
         }
 
         $scope.submit = function () {
+            $scope.contest.hostId = securityService.getUserId();
             var address = $scope.contest.location.streetAddress + ', ' + $scope.contest.location.postCode + ' ' + $scope.contest.location.city;
+
             geolocation.getCoordinatesFromAddress(address)
                 .then(function (location) {
                     if (location) {
