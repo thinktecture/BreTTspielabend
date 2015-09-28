@@ -17,7 +17,7 @@
 
         $urlRouterProvider.otherwise('/');
 
-        function getState(key, urlOverride, anonym) {
+        function getState(key, urlOverride, anonymous) {
             var url = urlOverride ? urlOverride : '/' + key;
 
             return {
@@ -25,7 +25,7 @@
                 templateUrl: 'app/' + key + '/' + key + '.html',
                 controller: key + 'Controller',
                 data: {
-                    needsAuthentication: !anonym
+                    needsAuthentication: !anonymous
                 }
             };
         }
