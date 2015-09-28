@@ -1,4 +1,4 @@
-(function ($, jQuery) {
+(function ($, jQuery, undefined) {
     "use strict";
 
     /**
@@ -6,9 +6,19 @@
      * @public
      *
      * @param $scope
+     * @param {ContestApi} contestApi
      */
-    function MainController($scope) {
+    function MainController($scope, contestApi) {
+        $scope.contests = undefined;
 
+        init();
+
+        function init() {
+            contestApi.list()
+                .then(function (contests) {
+                    $scope.contests = contests;
+                });
+        }
     }
 
     app.module.controller('mainController', MainController);

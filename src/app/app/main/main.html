@@ -1,3 +1,13 @@
 <h1>Willkommen!</h1>
 
-<button ui-sref="radiusSearch" class="btn btn-primary">Umkreissuche</button>
+<button ui-sref="organizeContest" class="btn btn-success">Brettspielabend organisieren</button>
+<button class="btn btn-default">Spieleliste</button>
+<button ui-sref="radiusSearch" class="btn btn-default">Umkreissuche</button>
+
+<h2>Liste der Brettspielabende</h2>
+<ul ng-if="contests && contests.length">
+    <li ng-repeat="contest in contests">{{contest.game.title}} ({{contest.location.streetAddress}}, {{contest.location.postCode}} {{contest.location.city}})</li>
+</ul>
+<div ng-if="contests.length === 0" class="alert alert-info">
+    Es wurden keine Brettspielabende gefunden.
+</div>
