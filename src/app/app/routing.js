@@ -13,7 +13,8 @@
             .state('radiusSearch', getState('radiusSearch'))
             .state('organizeContest', getState('organizeContest'))
             .state('login', getState('login', '/login', true))
-            .state('gameList', getState('gameList'));
+            .state('gameList', getState('gameList'))
+            .state('packshot', getState('packshot', '/packshot/:gameId'));
 
         $urlRouterProvider.otherwise('/');
 
