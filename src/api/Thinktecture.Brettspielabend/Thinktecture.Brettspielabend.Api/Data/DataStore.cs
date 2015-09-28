@@ -24,14 +24,21 @@ namespace Thinktecture.Brettspielabend.Api.Data
 				Id = userId
 			});
 
-			var gameId = new Guid("886dade5-d263-4c76-bec4-88231a3aaae1");
-			Games.Add(gameId, new Game
-			{
-				Id = gameId,
-				Title = "Jumanji"
-			});
+            var gameId = new Guid("886dade5-d263-4c76-bec4-88231a3aaae1");
+            Games.Add(gameId, new Game
+            {
+                Id = gameId,
+                Title = "Jumanji"
+            });
 
-			var contestId = new Guid("32137202-451f-4211-afdd-90d809b42860");
+            var gameId2 = new Guid("886dade5-d263-4c76-bec4-88231a3aaae2");
+            Games.Add(gameId2, new Game
+            {
+                Id = gameId2,
+                Title = "You don't know, Jack!"
+            });
+
+            var contestId = new Guid("32137202-451f-4211-afdd-90d809b42860");
 			Contests.Add(contestId, new Contest
 			{
 				Id = contestId,
@@ -49,7 +56,26 @@ namespace Thinktecture.Brettspielabend.Api.Data
 					}
 				}
 			});
-		}
+            
+            contestId = new Guid("43114782-0c5e-4efa-8bfe-0843e7b3ab82");
+            Contests.Add(contestId, new Contest()
+            {
+                Id = contestId,
+                GameId = gameId2,
+                HostId = userId,
+                Location = new Location()
+                {
+                    City = "Karlsruhe",
+                    PostCode = "76137",
+                    StreetAddress = "Ludwig-Erhard-Allee 6",
+                    Coordinates = new Coordinates()
+                    {
+                        Latitude = 49.0092,
+                        Longitude = 8.4040
+                    }
+                }
+            });
+        }
 
 		public Dictionary<Guid, User> Users { get; private set; }
 		public Dictionary<Guid, Contest> Contests { get; private set; }
