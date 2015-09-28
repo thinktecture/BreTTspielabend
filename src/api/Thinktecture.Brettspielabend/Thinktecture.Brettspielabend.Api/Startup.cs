@@ -1,6 +1,8 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 using Autofac;
 using Autofac.Integration.WebApi;
+using Newtonsoft.Json.Serialization;
 using Owin;
 using Thinktecture.Brettspielabend.Api.Data;
 using Thinktecture.Brettspielabend.Api.Helpers;
@@ -33,6 +35,9 @@ namespace Thinktecture.Brettspielabend.Api
 			var config = new HttpConfiguration();
 			config.Routes.MapHttpRoute("Default", "api/{controller}/{action}");
 			config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+			config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+			config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
 		    return config;
 	    }

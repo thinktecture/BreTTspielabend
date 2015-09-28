@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
 using Thinktecture.Brettspielabend.Api.Data;
 using Thinktecture.Brettspielabend.Api.Helpers;
@@ -20,6 +21,17 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 		[HttpPut]
 		public IHttpActionResult Create(Contest contest)
 		{
+			// Sanity checks
+			if (!_store.Users.ContainsKey(contest.HostId))
+			{
+				throw new Exception("Unknown Host.");
+			}
+
+			if (!_store.Games.ContainsKey(contest.GameId))
+			{
+				throw new Exception("Unknown Game.");
+			}
+
 			contest.Id = Guid.NewGuid();
 			_store.Contests.Add(contest.Id, contest);
 
@@ -75,12 +87,21 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 			var contestsNearby = _store.Contests
 				.Select(c => new 
 				{
-					Contest = c.Value,
+					Details = LoadGame(c.Value),
 					Distance = _distanceCalculator.CalculateDistance(origin, c.Value.Location.Coordinates)
 				})
 				.Where(c => c.Distance < radius);
 
 			return Ok(contestsNearby);
+		}
+
+		internal Contest LoadGame(Contest contest)
+		{
+			var game = _store.Games.SingleOrDefault(g => g.Key == contest.GameId);
+
+			contest.Game = game.Value;
+
+			return contest;
 		}
 	}
 }
