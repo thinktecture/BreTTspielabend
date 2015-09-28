@@ -12,7 +12,7 @@
         var baseUrl = webApiBaseUrl + '/contest';
 
         this.create = function (contest) {
-            return $http.put(baseUrl + '/Create', contest);
+            return $http.post(baseUrl + '/Create', contest);
         };
 
         this.list = function () {
