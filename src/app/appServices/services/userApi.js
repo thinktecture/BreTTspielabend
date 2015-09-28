@@ -16,6 +16,37 @@
                 .then(function (result) {
                     return result.data;
                 });
+        };
+
+        this.create = function (name) {
+            return $http.post(baseUrl + '/create', {
+                name: name
+            })
+                .then(function (result) {
+                    return result.data;
+                });
+        };
+
+        this.get = function (id) {
+            return $http.get(baseUrl + '/get', {
+                params: {
+                    id: id
+                }
+            })
+                .then(function (result) {
+                    return result.data;
+                });
+        };
+
+        this.getByName = function (name) {
+            return $http.get(baseUrl + '/getByName', {
+                params: {
+                    name: name
+                }
+            })
+                .then(function (result) {
+                    return result.data;
+                });
         }
     }
 

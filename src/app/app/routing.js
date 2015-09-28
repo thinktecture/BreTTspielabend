@@ -11,17 +11,21 @@
         $stateProvider
             .state('main', getState('main', '/'))
             .state('radiusSearch', getState('radiusSearch'))
-            .state('organizeContest', getState('organizeContest'));
+            .state('organizeContest', getState('organizeContest'))
+            .state('login', getState('login', '/login', true));
 
         $urlRouterProvider.otherwise('/');
 
-        function getState(key, urlOverride) {
+        function getState(key, urlOverride, anonym) {
             var url = urlOverride ? urlOverride : '/' + key;
 
             return {
                 url: url,
                 templateUrl: 'app/' + key + '/' + key + '.html',
-                controller: key + 'Controller'
+                controller: key + 'Controller',
+                data: {
+                    needsAuthentication: !anonym
+                }
             };
         }
     }

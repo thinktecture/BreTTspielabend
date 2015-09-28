@@ -32,18 +32,31 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 				}));
 		}
 
-		[HttpGet]
-		public IHttpActionResult Get(Guid id)
-		{
-			if (!_store.Users.ContainsKey(id))
-			{
-				return NotFound();
-			}
+        [HttpGet]
+        public IHttpActionResult Get(Guid id)
+        {
+            if (!_store.Users.ContainsKey(id))
+            {
+                return NotFound();
+            }
 
-			return Ok(_store.Users[id]);
-		}
+            return Ok(_store.Users[id]);
+        }
 
-		[HttpPut]
+        [HttpGet]
+        public IHttpActionResult GetByName(string name)
+        {
+            var user = _store.Users.SingleOrDefault(u => u.Value.Name == name);
+
+            if (user.Value == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user.Value);
+        }
+
+        [HttpPut]
 		public IHttpActionResult Update(User user)
 		{
 			if (!_store.Users.ContainsKey(user.Id))

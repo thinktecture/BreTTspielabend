@@ -1,0 +1,24 @@
+<h2>Login</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <form name="loginForm" ng-submit="login()">
+            <span class="help-block">Bitte geben Sie Ihren Benutzernamen an, um sich in der App anzumelden.</span>
+            <div class="form-group">
+                <label for="username" class="control-label sr-only">Benutzername</label>
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                    <input type="text" class="form-control" id="username" name="username" ng-model="model.username" placeholder="Benutzername" required>
+                </div>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="model.rememberMe"> Eingeloggt bleiben
+                </label>
+            </div>
+
+            <button class="center-block btn btn-success btn-lg" type="submit" ng-disabled="loginForm.$invalid">Anmelden</button>
+        </form>
+    </div>
+</div>
