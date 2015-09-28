@@ -55,7 +55,6 @@
                 .then(function () {
                     $state.go('main');
                 });
-            ;
         };
     }
 

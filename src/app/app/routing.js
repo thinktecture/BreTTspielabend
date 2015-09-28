@@ -12,7 +12,8 @@
             .state('main', getState('main', '/'))
             .state('radiusSearch', getState('radiusSearch'))
             .state('organizeContest', getState('organizeContest'))
-            .state('login', getState('login', '/login', true));
+            .state('login', getState('login', '/login', true))
+            .state('gameList', getState('gameList'));
 
         $urlRouterProvider.otherwise('/');
 
