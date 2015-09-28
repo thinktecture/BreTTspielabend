@@ -41,7 +41,14 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 		[HttpGet]
 		public IHttpActionResult List()
 		{
-			return Ok(_store.Contests.Values);
+			return Ok(_store.Contests.Values.Select(v => new Contest
+			{
+				GameId = v.GameId,
+				HostId = v.HostId,
+				Game = _store.Games.Single(g => g.Key == v.GameId).Value,
+				Id = v.Id,
+				Location = v.Location
+			}).ToList());
 		}
 
 		[HttpGet]
