@@ -18,7 +18,7 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 			_distanceCalculator = distanceCalculator;
 		}
 
-		[HttpPut]
+		[HttpPost]
 		public IHttpActionResult Create(Contest contest)
 		{
 			// Sanity checks
@@ -62,7 +62,7 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 			return Ok(_store.Contests[id]);
 		}
 
-		[HttpPost]
+		[HttpPut]
 		public IHttpActionResult Update(Contest contest)
 		{
 			if (!_store.Contests.ContainsKey(contest.Id))
