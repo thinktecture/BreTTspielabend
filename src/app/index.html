@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="brettspielabend">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+    <title>BreTTspielabend</title>
+
+    <link rel="stylesheet" href="assets/app.css"/>
+    <link rel="stylesheet" href="libs/bootstrap/bootstrap.css"/>
+</head>
+<body>
+    <div class="container" ui-view></div>
+
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/ui-router/angular-ui-router.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/routing.js"></script>
+    <script src="appServices/services/contestApi.js"></script>
+    <script src="appServices/services/gameApi.js"></script>
+    <script src="appServices/services/geolocation.js"></script>
+    <script src="appServices/services/userApi.js"></script>
+    <script src="app/main/main.js"></script>
+    <script src="app/radiusSearch/radiusSearch.js"></script>
+</body>
+</html>
