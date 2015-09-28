@@ -96,6 +96,7 @@
     <Compile Include="Data\Game.cs" />
     <Compile Include="Data\Location.cs" />
     <Compile Include="Data\Coordinates.cs" />
+    <Compile Include="Data\Packshot.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="Helpers\DistanceCalculator.cs" />
     <Compile Include="Startup.cs" />
