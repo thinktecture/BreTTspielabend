@@ -1,24 +1,24 @@
 <h1>Spieleabend organisieren</h1>
-<form ng-submit="submit()">
+<form name="organizeContest" ng-submit="submit()">
     <div class="form-group">
         <label for="game">Spiel</label>
-        <select id="game" class="form-control" ng-options="game.id as game.title for game in games" ng-model="contest.gameId"></select>
+        <select id="game" class="form-control" ng-options="game.id as game.title for game in games" ng-model="contest.gameId" required></select>
     </div>
     <div class="form-group">
         <label for="host">Gastgeber</label>
-        <select id="host" class="form-control" ng-options="user.id as user.fullName for user in users" ng-model="contest.hostId"></select>
+        <select id="host" class="form-control" ng-options="user.id as user.fullName for user in users" ng-model="contest.hostId" required></select>
     </div>
     <div class="form-group">
         <label for="address">Anschrift</label>
-        <input id="address" type="text" class="form-control" ng-model="contest.location.streetAddress" placeholder="Anschrift">
+        <input id="address" type="text" class="form-control" ng-model="contest.location.streetAddress" placeholder="Anschrift" required>
     </div>
     <div class="form-group">
         <label for="postCode">PLZ</label>
-        <input id="postCode" type="text" class="form-control" ng-model="contest.location.postCode" placeholder="PLZ">
+        <input id="postCode" type="text" class="form-control" ng-model="contest.location.postCode" placeholder="PLZ" required>
     </div>
     <div class="form-group">
         <label for="city">Stadt</label>
-        <input id="city" type="text" class="form-control" ng-model="contest.location.city" placeholder="Stadt">
+        <input id="city" type="text" class="form-control" ng-model="contest.location.city" placeholder="Stadt" required>
     </div>
-    <button type="submit" class="btn btn-primary">Einreichen</button>
+    <button type="submit" class="btn btn-primary" ng-disabled="organizeContest.$invalid">Einreichen</button>
 </form>
