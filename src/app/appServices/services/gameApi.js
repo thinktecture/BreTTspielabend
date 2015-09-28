@@ -6,9 +6,17 @@
      * @public
      *
      * @param {string} webApiBaseUrl
+     * @param $http
      */
-    function GameApi(webApiBaseUrl) {
+    function GameApi(webApiBaseUrl, $http) {
+        var baseUrl = webApiBaseUrl + '/game';
 
+        this.list = function () {
+            return $http.get(baseUrl + '/List')
+                .then(function (result) {
+                    return result.data;
+                });
+        };
     }
 
     app.module.service('gameApi', GameApi);
