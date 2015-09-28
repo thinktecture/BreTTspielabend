@@ -127,6 +127,25 @@ namespace Thinktecture.Brettspielabend.Api.Data
                     }
                 }
             });
+
+            contestId = new Guid("44114782-0c5e-4efa-8bfe-0843e7b3ab23");
+            Contests.Add(contestId, new Contest()
+            {
+                Id = contestId,
+                GameId = gameId4,
+                HostId = userId,
+                Location = new Location()
+                {
+                    City = "Offenburg",
+                    PostCode = "77635",
+                    StreetAddress = "Okenstr. 144",
+                    Coordinates = new Coordinates()
+                    {
+                        Latitude = 48.4667,
+                        Longitude = 7.9333
+                    }
+                }
+            });
         }
 
 		public Dictionary<Guid, User> Users { get; private set; }

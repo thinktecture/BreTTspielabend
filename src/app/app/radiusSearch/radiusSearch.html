@@ -14,9 +14,11 @@
 <div class="alert alert-danger" ng-if="geolocationUnavailable">
     Geolocation steht auf dieser Plattform entweder nicht zur Verfügung oder wurde blockiert.
 </div>
-<div ng-if="!geolocationUnavailable">
+<div ng-hide="geolocationUnavailable">
+    <game-compass size="350" contests="contests" coordinates="coordinates" max-distance="model.radius"></game-compass>
+
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="contest in contests"><span class="badge">{{contest.distance | number:0}} km</span> {{contest.details.game.title}}</li>
+        <li class="list-group-item" ng-repeat="contest in contests">{{$index+1}}. <span class="badge">{{contest.distance | number:0}} km</span> {{contest.details.game.title}}</li>
     </ul>
 </div>
 
