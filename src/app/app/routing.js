@@ -10,7 +10,8 @@
     function RoutingConfig($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('main', getState('main', '/'))
-            .state('radiusSearch', getState('radiusSearch'));
+            .state('radiusSearch', getState('radiusSearch'))
+            .state('organizeContest', getState('organizeContest'));
 
         $urlRouterProvider.otherwise('/');
 
