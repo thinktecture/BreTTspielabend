@@ -12,7 +12,7 @@
         var baseUrl = webApiBaseUrl + '/user';
 
         this.list = function () {
-            return $http.get(baseUrl + '/list')
+            return $http.get(baseUrl + '/List')
                 .then(function (result) {
                     return result.data;
                 });

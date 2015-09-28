@@ -15,8 +15,8 @@
     Geolocation steht auf dieser Plattform entweder nicht zur Verfügung oder wurde blockiert.
 </div>
 <div ng-if="!geolocationUnavailable">
-    <ul class="list-group" ng-repeat="contest in contests">
-        <li class="list-group-item"><span class="badge">{{contest.distance | number:0}} km</span> {{contest.details.game.title}}</li>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="contest in contests"><span class="badge">{{contest.distance | number:0}} km</span> {{contest.details.game.title}}</li>
     </ul>
 </div>
 

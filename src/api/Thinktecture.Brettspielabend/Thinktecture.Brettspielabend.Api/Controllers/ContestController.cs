@@ -97,7 +97,8 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 					Details = LoadGame(c.Value),
 					Distance = _distanceCalculator.CalculateDistance(origin, c.Value.Location.Coordinates)
 				})
-				.Where(c => c.Distance < radius);
+				.Where(c => c.Distance < radius)
+				.OrderBy(c => c.Distance);
 
 			return Ok(contestsNearby);
 		}
