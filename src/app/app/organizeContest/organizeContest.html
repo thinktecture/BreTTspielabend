@@ -2,11 +2,15 @@
 <form name="organizeContest" ng-submit="submit()">
     <div class="form-group">
         <label for="game">Spiel</label>
-        <select id="game" class="form-control" ng-options="game.id as game.title for game in games" ng-model="contest.gameId" required></select>
+        <select id="game" class="form-control" ng-options="game.id as game.title for game in games" ng-model="contest.gameId" required>
+            <option value="">-- Bitte wählen --</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="host">Gastgeber</label>
-        <select id="host" class="form-control" ng-options="user.id as user.fullName for user in users" ng-model="contest.hostId" required></select>
+        <select id="host" class="form-control" ng-options="user.id as user.name for user in users" ng-model="contest.hostId" required>
+            <option value="">-- Bitte wählen --</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="address">Anschrift</label>

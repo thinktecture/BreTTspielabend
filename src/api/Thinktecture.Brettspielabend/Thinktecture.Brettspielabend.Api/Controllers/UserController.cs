@@ -28,7 +28,8 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 		{
 			return Ok(_store.Users.Values.Select(u => new {
 					u.Id,
-					u.FullName
+					u.FullName,
+                    u.Name
 				}));
 		}
 
