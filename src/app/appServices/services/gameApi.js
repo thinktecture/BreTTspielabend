@@ -17,6 +17,16 @@
                     return result.data;
                 });
         };
+
+        this.get = function (id) {
+            return $http.get(baseUrl + '/Get', {
+                params: {
+                    id: id
+                }
+            }).then(function (result) {
+                return result.data;
+            });
+        };
     }
 
     app.module.service('gameApi', GameApi);
