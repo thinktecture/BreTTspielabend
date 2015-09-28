@@ -14,7 +14,7 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 			_store = store;
 		}
 
-		[HttpPut]
+		[HttpPost]
 		public IHttpActionResult Create(User user)
 		{
 			user.Id = Guid.NewGuid();
@@ -43,7 +43,7 @@ namespace Thinktecture.Brettspielabend.Api.Controllers
 			return Ok(_store.Users[id]);
 		}
 
-		[HttpPost]
+		[HttpPut]
 		public IHttpActionResult Update(User user)
 		{
 			if (!_store.Users.ContainsKey(user.Id))
